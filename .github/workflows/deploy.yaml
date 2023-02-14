@@ -2,7 +2,7 @@ name: Deploy Frontend
 on:
   push:
     branches:
-      - master # check your repo, your default branch might be master!
+      - master # check your repo, your default branch might not be master!
  
 jobs:
   build:
@@ -14,7 +14,7 @@ jobs:
       - run: docker build -t jnathlich/docker-react -f Dockerfile.dev .
       - run: docker run -e CI=true jnathlich/docker-react npm test
  
-       
+      
       - name: Generate deployment package
         run: zip -r deploy.zip . -x '*.git*'
  

@@ -14,7 +14,7 @@ jobs:
       - run: docker build -t jnathlich/docker-react -f Dockerfile.dev .
       - run: docker run -e CI=true jnathlich/docker-react npm test
    
-      - name: Generate deployment package
+      - name: Generate deployment
         run: zip -r deploy.zip . -x '*.git*'
  
       - name: Deploy to EB
